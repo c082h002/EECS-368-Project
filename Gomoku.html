@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<meta charset="UTF-8" />
+ 	<title>Gomoku</title>
+	<style>
+		.title{
+			text-align:center;
+		}
+		.chess{
+			display: block;
+ 			margin: 50px auto;
+ 			box-shadow: 5px 5px 5px  #B9B9B9,-2px -2px 2px #EFEFEF;
+			cursor: pointer;
+		}
+		div{
+			text-align:center;
+		}
+
+		.restart{
+			padding: 10px  20px;
+			background-color:  aqua;
+			cursor: pointer;
+		}
+	</style>
+ </head>
+ <body>
+	<h3 class="title">Gomoku</h3>
+ 	<canvas class="chess" width="450px" height="450px"></canvas>
+  	<div>
+		<a class = "restart" onclick="rst()">Start New Game</a>
+	</div>
+</body>
+<script>
+	var chess = document.getElementsByClassName("chess")[0];
+	var context = chess.getContext("2d");
+	context.strokeStyle="#B9B9B9"
+	var logo= new Image();
+	logo.src="background.jpg";
+	window.onload=function(){
+		context.drawImage(logo,0,0,450,450);
+		drawChessBoard();
+	}
+	function drawChessBoard(){
+
+ 		for(var i=0;i<15;i++){
+ 		context.moveTo(15+i*30,15);
+ 		context.lineTo(15+i*30,435);
+ 		context.moveTo(15,15+i*30);
+		context.lineTo(435,15+i*30);
+ 		context.stroke();
+ 		}
+	} 
+</script>
+<script type="text/javascript" src="Gomoku.js" ></script>
+</html>
